@@ -43,7 +43,7 @@ Dependencies
  |python|  |Requests| |Coverage| |Codecov| |NameGenerator|
 ------------
 
-.. |python| image:: https://img.shields.io/badge/python-3.7.4-blue.svg?style=flat-square
+.. |python| image:: https://img.shields.io/badge/Python-3.7.4-blue.svg?style=flat-square
     :alt: Python version
     :scale: 100%
     :target: https://www.python.org/downloads/release/python-374/
