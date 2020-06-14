@@ -83,9 +83,9 @@ Installation
 Docs
 =========================================================
 
-1. Basic  :ref:`AuthenticationExample` Authentication
+1. **Authenticating username & token with Github API.**
 
-.. _AuthenticationExample:
+.. _Authentication-Example:
 
 .. code-block:: python
 
@@ -96,9 +96,110 @@ Docs
         username = 'myusername'
         token = 'myrandomtoken'
         g = GitPy(username,token)    
-        print(g.authenticate()) # Authentication successfull myusername
+        print(g.authenticate()) # Authentication successfull myusername / Access Denied : ( Wrong Token / Wrong Username ) 
 
     if __name__ == '__main__':
         main()
     
+2. **Creating Repositories.** 
 
+.. code-block:: python
+
+    '''
+    Repository class deals with repository (public/private) creation/deletion.
+    Response based function support. 
+    See create_repository(gitpy_object) for more information. 
+    '''
+
+    from gitpy.core.auth import GitPy
+    from gitpy.repository.repos import Repository
+
+    def basic_authentication():
+        # bad practice use env file or environment variables 
+        username = 'myusername'
+        token = 'myrandomtoken'
+        g = GitPy(username,token)    
+        return g
+
+    def create_repository(gitpy_object):
+        repo = Repository(gitpy_object)
+        response = repo.create_public_repository('my-public-repo')
+        print(response.status_code) # 201 -> Created , 422 -> Already Present
+
+        ''' or directy accessing underlying function '''
+        response = repo.create_repository('my-public-repo-2',False)  # False for Public
+        print(response.status_code) # 201 -> Created , 422 -> Already Present
+
+        response = repo.create_private_repository('my-private-repo')
+        print(response.status_code) # 201 -> Created , 422 -> Already Present
+
+        ''' or directy accessing underlying function '''
+        response = repo.create_repository('my-private-repo-2',True)  # True for Private
+        print(response.status_code) # 201 -> Created , 422 -> Already Present
+
+
+    if __name__ == '__main__':
+        gitpy_object = basic_authentication()
+        create_repository(gitpy_object)
+
+3. **Repository Deletion.** 
+
+.. code-block:: python
+
+    '''
+    Repository class deals with repository (public/private) creation/deletion.
+    Response based function support. 
+    See repo_deletion(gitpy_object,repo_name) for more information. 
+    '''
+
+    from gitpy.core.auth import GitPy
+    from gitpy.repository.repos import Repository
+
+    def basic_authentication():
+        # bad practice use env file or environment variables 
+        username = 'myusername'
+        token = 'myrandomtoken'
+        g = GitPy(username,token)    
+        return g
+
+    def repo_deletion(gitpy_object,repo_name):
+        repo = Repository(gitpy_object)
+        response = repo.delete_repository(repo_name)
+        print(response.status_code) # 204 -> Success , 401 -> Not Allowed , 404 -> Repo not found
+
+    if __name__ == '__main__':
+        gitpy_object = basic_authentication()
+        repo_deletion(gitpy_object,'my-public-repo')
+
+4. **Listing all repositories.**
+
+.. code-block:: python
+
+    '''
+    Repository class deals with repository (public/private) creation/deletion/listing.
+    Response based function support. 
+    See list_all_repos(gitpy_object) for more information. 
+    '''
+
+    from gitpy.core.auth import GitPy
+    from gitpy.repository.repos import Repository
+    import json
+
+    def basic_authentication():
+        # bad practice use env file or environment variables 
+        username = 'myusername'
+        token = 'myrandomtoken'
+        g = GitPy(username,token)    
+        return g
+
+    def list_all_repos(gitpy_object):
+        repo = Repository(gitpy_object)
+        response = repo.list_all_user_repositories()
+        if(response.status_code == 200):
+            print(json.dumps(response.json(),indent=2)) # all repo & meta-data
+        else if (response.status_code == 401):        
+            print('Bad credentials')
+            
+    if __name__ == '__main__':
+        gitpy_object = basic_authentication()
+        list_all_repos(gitpy_object)
