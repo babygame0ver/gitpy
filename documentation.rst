@@ -67,3 +67,9 @@ Dependencies
     :alt: Codecov version
     :scale: 100%
     :target: https://pypi.org/project/namegenerator/
+    
+
+=========================================================
+Installation
+=========================================================
+
