@@ -10,7 +10,7 @@ Python Interface to GitHub's developer API
 ------------
 
 
-.. |build-status| image:: https://travis-ci.org/babygame0ver/gitpy.svg?branch=master&style=flat-square
+.. |build-status| image:: https://travis-ci.org/babygame0ver/gitpy.svg?branch=release&style=flat-square
     :alt: Travis Build Status
     :scale: 100%
     :target: https://travis-ci.org/babygame0ver/gitpy
@@ -20,7 +20,7 @@ Python Interface to GitHub's developer API
     :scale: 100%
     :target: https://codeclimate.com/github/babygame0ver/gitpy
     
-.. |Code Coverage| image:: https://codecov.io/gh/babygame0ver/gitpy/branch/master/graph/badge.svg
+.. |Code Coverage| image:: https://codecov.io/gh/babygame0ver/gitpy/branch/release/graph/badge.svg
     :alt: Code Coverage
     :scale: 100%
     :target: https://codecov.io/gh/babygame0ver/gitpy
@@ -230,6 +230,7 @@ Development Setup
 .. code-block:: shell
 
     python3 -m unittest discover
+    coverage run -m unittest discover
     
 =========================================================
  Support
