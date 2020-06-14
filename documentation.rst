@@ -73,20 +73,32 @@ Dependencies
 Installation
 =========================================================
 
+.. code-block:: shell
+
+    git clone https://github.com/babygame0ver/gitpy.git
+    git checkout -b install
+    python3 setup.py install
+    
+=========================================================
+Docs
+=========================================================
+
+1. Basic  :ref:`AuthenticationExample` Authentication
+
+.. _AuthenticationExample:
+
 .. code-block:: python
+
     from gitpy.core.auth import GitPy
-    def authentication_module_using_configFile():
-        config_data = GitPy.get_initial_configuration()
-        print(config_data)
-        print(g.check_connectivity()) # Connected
-        print(g.authorization()) # Authorization Successfull {username}
-    def authentication_module_using_Credentials(): # bad practice -> never hard-code username & token in file
-        g = GitPy(username = 'username',token = 'token')
-        print(g.check_connectivity()) # Connected
-        print(g.authorization()) # Authorization Successfull {username}
-    def main():
-        authentication_module_using_configFile()
-        authentication_module_using_Credentials()
+
+    def basic_authentication():
+        # bad practice use env file or environment variables 
+        username = 'myusername'
+        token = 'myrandomtoken'
+        g = GitPy(username,token)    
+        print(g.authenticate()) # Authentication successfull myusername
+
     if __name__ == '__main__':
         main()
+    
 
