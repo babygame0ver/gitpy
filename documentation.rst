@@ -85,8 +85,6 @@ Docs
 
 1. **Authenticating username & token with Github API.**
 
-.. _Authentication-Example:
-
 .. code-block:: python
 
     from gitpy.core.auth import GitPy
