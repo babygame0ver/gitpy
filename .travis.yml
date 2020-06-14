@@ -11,10 +11,6 @@ os:
 before_install:
   - chmod +x entry.sh
 
-branches:
-  only:
-  - release
-
 script:
   ./entry.sh
 
