@@ -1,0 +1,21 @@
+language: python
+
+sudo: false
+dist : xenial
+python:
+  - "3.7"
+
+os:
+  - linux
+
+before_install:
+  - chmod +x entry.sh
+
+script:
+  ./entry.sh
+
+after_success:
+  - codecov
+  - python setup.py install  
+
+  

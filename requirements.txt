@@ -1,0 +1,4 @@
+requests==2.22.0
+coverage==4.5.4
+codecov
+namegenerator==1.0.6
