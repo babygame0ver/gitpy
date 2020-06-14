@@ -208,7 +208,7 @@ Gitpy works with username & token of a given account. Please obtain a personal a
         list_all_repos(gitpy_object)
 
 =========================================================
-Contribution & Development Setup
+Development Setup
 =========================================================
 
 1. Obtain a personal access token with all permissions from github.
@@ -231,3 +231,22 @@ Contribution & Development Setup
 
     python3 -m unittest discover
     
+=========================================================
+ Support
+=========================================================
+
+If you feel any point is missing out or don't find anything in the docs. Please create an issue with proper label and I will try my best to assist you there.
+
+=========================================================
+Contribution
+=========================================================
+
+Contributions are always welcome. Feel free to fork the repository
+
+You can do any of these 
+
+1. Improve code Readability , Maintainability or any implemetation that makes it better
+
+2. Implement new features by creating a seprate branch & sending PR to develop branch.
+
+or any other ideas which you feel makes it better. 
