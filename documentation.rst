@@ -83,6 +83,11 @@ Installation
 Docs
 =========================================================
 
+Gitpy works with username & token of a given account. Please obtain a personal access token with all permissions & save it somewhere securely. 
+
+`Github Personal Token Guide <https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line>`_	
+
+
 1. **Authenticating username & token with Github API.**
 
 .. code-block:: python
@@ -201,3 +206,28 @@ Docs
     if __name__ == '__main__':
         gitpy_object = basic_authentication()
         list_all_repos(gitpy_object)
+
+=========================================================
+Contribution & Development Setup
+=========================================================
+
+1. Obtain a personal access token with all permissions from github.
+
+`Github Personal Token Guide <https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line>`_
+
+2. Create a config.json file in root directory of project with following content.
+
+.. code-block:: json
+
+    {
+    "username" : "username",
+    "token" : "token"
+    }
+3. For Travis setup add username & token to your env variables.
+
+4. Run Tests
+
+.. code-block:: shell
+
+    python3 -m unittest discover
+    
