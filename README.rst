@@ -99,7 +99,8 @@ Gitpy works with username & token of a given account. Please obtain a personal a
         username = 'myusername'
         token = 'myrandomtoken'
         g = GitPy(username,token)    
-        print(g.authenticate()) # Authentication successfull myusername / Access Denied : ( Wrong Token / Wrong Username ) 
+        print(g.authenticate()) # Authentication successfull myusername 
+        # OR Access Denied : ( Wrong Token / Wrong Username ) 
 
     if __name__ == '__main__':
         main()
