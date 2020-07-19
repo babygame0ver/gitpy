@@ -226,10 +226,10 @@ Development Setup
     }
 3. For Travis setup add username & token to your env variables.
 
-4. Run Tests
+4. Run Tests Locally
 
 .. code-block:: shell
-
+    pip3 install -r requirements.txt
     python3 -m unittest discover
     coverage run -m unittest discover
     
