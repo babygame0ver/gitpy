@@ -39,12 +39,16 @@ class TestAuth(unittest.TestCase):
 
     def test_authentication(self):
         self.logger.info('executing')             
-        self.gitpy_object = GitPy(username=self.username,token=self.token+'nonce')
-        self.assertEqual(self.gitpy_object.authenticate(),'Access Denied : Wrong Token')
-        self.gitpy_object = GitPy(username=self.username+'nonce',token=self.token)
-        self.assertEqual(self.gitpy_object.authenticate(),'Access Denied : Wrong Username')
         self.gitpy_object = GitPy(username=self.username,token=self.token)
-        self.assertEqual(self.gitpy_object.authenticate(),'Authentication Successfull {}'.format(self.username))
+        headers = self.gitpy_object.authenticate().headers
+        self.assertEqual(headers['status'],'200 OK')
+        self.assertEqual(headers['X-RateLimit-Limit'],'5000')
+        self.gitpy_object = GitPy(username=self.username,token='{}nonce'.format(self.token))
+        headers = self.gitpy_object.authenticate().headers
+        self.assertEqual(headers['status'],'401 Unauthorized')
+        self.gitpy_object = GitPy(username=self.username+'nonce',token=self.token)
+        headers = self.gitpy_object.authenticate().headers
+        self.assertEqual(headers['status'],'404 Not Found')        
         self.logger.info('completed')
 
 if __name__ == '__main__':
