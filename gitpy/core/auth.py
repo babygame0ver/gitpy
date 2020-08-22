@@ -1,15 +1,6 @@
 import json , os , requests
 from gitpy.service.networkService import NetworkService
-
-class CoreUrls():
-    
-    urls = {
-        'authUrl' : 'users/{}'
-    }
-    
-    @staticmethod
-    def getAuthUrl(username):
-        return CoreUrls.urls['authUrl'].format(username)
+from gitpy.constants.urls import api_urls
 
 class GitPy:
     
@@ -19,6 +10,7 @@ class GitPy:
         self.network_service = NetworkService(headers = {
             'Authorization' : 'Token {}'.format(self.token)
         })
+        self.api_urls = api_urls()
 
     @staticmethod
     def get_initial_configuration():
@@ -31,19 +23,7 @@ class GitPy:
             return({ 'username' : os.environ['username'],
                      'token' : os.environ['token'] })                         
 
-    def authenticate(self):
-        url = CoreUrls.getAuthUrl(self.username)
-        response = self.network_service.get(url)
-        headers = response.headers        
-        if headers['Status'] == "200 OK" and headers['X-RateLimit-Limit'] == "5000":
-            return('Authentication Successfull blackhathack3r')
-        if headers['Status'] == '401 Unauthorized':
-            return('Access Denied : Wrong Token')
-        if headers['Status'] == "404 Not Found":
-            return('Access Denied : Wrong Username')        
-        
-def main():
-    pass
-
-if __name__ == '__main__':
-    main()
+    def authenticate(self):        
+        payload = {'username' : self.username}
+        url = self.api_urls.get_url('auth_urls','authentication',payload)
+        return self.network_service.get(url)
