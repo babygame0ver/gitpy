@@ -10,7 +10,7 @@ Python Interface to GitHub's developer API
 ------------
 
 
-.. |build-status| image:: https://travis-ci.org/babygame0ver/gitpy.svg?branch=release&style=flat-square
+.. |build-status| image:: https://travis-ci.org/babygame0ver/gitpy.svg?branch=master&style=flat-square
     :alt: Travis Build Status
     :scale: 100%
     :target: https://travis-ci.org/babygame0ver/gitpy
@@ -20,7 +20,7 @@ Python Interface to GitHub's developer API
     :scale: 100%
     :target: https://codeclimate.com/github/babygame0ver/gitpy
     
-.. |Code Coverage| image:: https://codecov.io/gh/babygame0ver/gitpy/branch/release/graph/badge.svg
+.. |Code Coverage| image:: https://codecov.io/gh/babygame0ver/gitpy/branch/master/graph/badge.svg
     :alt: Code Coverage
     :scale: 100%
     :target: https://codecov.io/gh/babygame0ver/gitpy
@@ -78,7 +78,18 @@ Installation
     git clone https://github.com/babygame0ver/gitpy.git
     git checkout -b install
     python3 setup.py install
-    
+
+
+=========================================================
+Features
+=========================================================
+
+* GitPy provide response based object for the GitHub Developer's API with the help of methods.
+
+* Response based approach helps other Developers to write their own logic after performing the action.
+
+* To write your own application interacting with GitHub API you need to store the end-point urls & mock them using request library. 
+
 =========================================================
 Docs
 =========================================================
@@ -95,22 +106,28 @@ Gitpy works with username & token of a given account. Please obtain a personal a
     from gitpy.core.auth import GitPy
 
     def basic_authentication():
-        # bad practice use env file or environment variables 
+        # bad practice use env file or environment variables to secure your credentials.
         username = 'myusername'
         token = 'myrandomtoken'
         g = GitPy(username,token)    
-        print(g.authenticate()) # Authentication successfull myusername 
-        # OR Access Denied : ( Wrong Token / Wrong Username ) 
-
+        response = g.authenticate()
+        headers = response.headers
+        if(headers['status] == '200 OK' and headers['X-RateLimit-Limit'] === '5000'):
+            print('Authentication Successfull')
+        if(headers['status] == '401 Unauthorized'):
+            print('Wrong Token provided')
+        if(headers['status] == '404 Not Found'):
+            print('Username not found')
+        
     if __name__ == '__main__':
-        main()
+        basic_authentication()
     
 2. **Creating Repositories.** 
 
 .. code-block:: python
 
     '''
-    Repository class deals with repository (public/private) creation/deletion.
+    Repository Class deals with repository (public/private) creation/deletion.
     Response based function support. 
     See create_repository(gitpy_object) for more information. 
     '''
@@ -140,7 +157,6 @@ Gitpy works with username & token of a given account. Please obtain a personal a
         ''' or directy accessing underlying function '''
         response = repo.create_repository('my-private-repo-2',True)  # True for Private
         print(response.status_code) # 201 -> Created , 422 -> Already Present
-
 
     if __name__ == '__main__':
         gitpy_object = basic_authentication()
@@ -238,18 +254,19 @@ Development Setup
  Support
 =========================================================
 
-If you feel any point is missing out or don't find anything in the docs. Please create an issue with proper label and I will try my best to assist you there.
+If you are facing issues related to bugs, code documentation, development setup or any other general issue.
+Feel free to open an issue to reproduce the bug by providing sample code with proper label.   
 
 =========================================================
 Contribution
 =========================================================
 
-Contributions are always welcome. Feel free to fork the repository
+Contributions are always welcome.
 
-You can do any of these 
+You can do any of these following:
 
-1. Improve code Readability , Maintainability or any implemetation that makes it better
+1. What can you do ? : Improve code Readability,Maintainability,any implemetation that makes it better, new ideas for the project.
 
-2. Implement new features by creating a seprate branch & sending PR to develop branch.
+2. How you can do it ? : Fork the repository, Implement new features by creating a seprate branch & sending PR to develop branch , with writting proper unit tests.  
 
-or any other ideas which you feel makes it better. 
+Made with ❤️ by [babygame0ver](https://www.github.com/babygame0ver)
