@@ -88,7 +88,7 @@ Features
 
 * Response based approach helps other Developers to write their own logic after performing the action.
 
-* To write your own application interacting with GitHub API you need to store the end-point urls & mock them using request library. 
+* To write your own application interacting with GitHub API you need to store the end-point urls & mock them using request library. GitPy takes care it for you.
 
 =========================================================
 Docs
@@ -269,4 +269,4 @@ You can do any of these following:
 
 2. How you can do it ? : Fork the repository, Implement new features by creating a seprate branch & sending PR to develop branch , with writting proper unit tests.  
 
-Made with ❤️ by [babygame0ver](https://www.github.com/babygame0ver)
+Made with ❤️ by `babygame0ver<https://www.github.com/babygame0ver>`
