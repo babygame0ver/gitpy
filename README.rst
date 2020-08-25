@@ -268,5 +268,4 @@ You can do any of these following:
 1. What can you do ? : Improve code Readability,Maintainability,any implemetation that makes it better, new ideas for the project.
 
 2. How you can do it ? : Fork the repository, Implement new features by creating a seprate branch & sending PR to develop branch , with writting proper unit tests.  
-
-Made with ❤️ by `babygame0ver <https://www.github.com/babygame0ver>`_
+Engineered with ❤️ by `babygame0ver <https://www.github.com/babygame0ver>`_
