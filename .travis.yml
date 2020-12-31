@@ -9,7 +9,7 @@ os:
   - linux
 
 script:
-  python scripts\ci\run-tests
+  python scripts/ci/run-tests
  
 
   
