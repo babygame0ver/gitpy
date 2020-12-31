@@ -13,10 +13,13 @@ prev.py
 config.json
 .env
 .venv
+venv
 .coverage
+htmlcov
 
 # C extensions
 *.so
+*.xml
 
 # Distribution / packaging
 .Python

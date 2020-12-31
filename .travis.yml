@@ -8,14 +8,8 @@ python:
 os:
   - linux
 
-before_install:
-  - chmod +x entry.sh
-
 script:
-  ./entry.sh
-
-after_success:
-  - codecov
-  - python setup.py install  
+  python scripts/ci/run-tests
+ 
 
   

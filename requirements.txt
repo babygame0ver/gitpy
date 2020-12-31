@@ -1,4 +1,5 @@
+certifi==2020.12.5
+chardet==3.0.4
+idna==2.8
 requests==2.22.0
-coverage==4.5.4
-codecov
-namegenerator==1.0.6
+urllib3==1.25.11
