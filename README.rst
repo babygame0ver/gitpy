@@ -20,16 +20,6 @@ Python Interface to GitHub's developer API
     :scale: 100%
     :target: https://codeclimate.com/github/babygame0ver/gitpy
     
-.. |Code Coverage| image:: https://codecov.io/gh/babygame0ver/gitpy/branch/master/graph/badge.svg
-    :alt: Code Coverage
-    :scale: 100%
-    :target: https://codecov.io/gh/babygame0ver/gitpy
-    
-.. |Codacy Badge| image:: https://api.codacy.com/project/badge/Grade/64422e753f1d40c9a7cc039b21f4363a
-    :alt: Code Quality
-    :scale: 100%
-    :target: https://www.codacy.com/manual/babygame0ver/gitpy
-
 .. |License| image:: https://img.shields.io/badge/license-MIT%20License-green.svg
     :alt: License
     :scale: 100%
@@ -40,7 +30,7 @@ Dependencies
 =========================================================
 
 ------------
- |python|  |Requests| |Coverage| |Codecov| |NameGenerator|
+ |python|  |Requests|
 ------------
 
 .. |python| image:: https://img.shields.io/badge/Python-3.7.4-blue.svg?style=flat-square
@@ -53,22 +43,6 @@ Dependencies
     :scale: 100%
     :target: (https://pypi.org/project/coverage/
     
-.. |Coverage| image:: https://img.shields.io/badge/Coverage-4.5.4-blue.svg?style=flat-square
-    :alt: Coverage version
-    :scale: 100%
-    :target: https://pypi.org/project/coverage/
-
-.. |Codecov| image:: https://img.shields.io/badge/Codecov-4.5.4-blue.svg?style=flat-square
-    :alt: Codecov version
-    :scale: 100%
-    :target: (https://pypi.org/project/codecov/
-    
-.. |NameGenerator| image:: https://img.shields.io/badge/Namegenerator-1.0.6-blue.svg?style=flat-square
-    :alt: Codecov version
-    :scale: 100%
-    :target: https://pypi.org/project/namegenerator/
-    
-
 =========================================================
 Installation
 =========================================================
@@ -228,27 +202,12 @@ Gitpy works with username & token of a given account. Please obtain a personal a
 Development Setup
 =========================================================
 
-1. Obtain a personal access token with all permissions from github.
-
-`Github Personal Token Guide <https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line>`_
-
-2. Create a config.json file in root directory of project with following content.
-
-.. code-block:: json
-
-    {
-    "username" : "username",
-    "token" : "token"
-    }
-3. For Travis setup add username & token to your env variables.
-
-4. Run Tests Locally
+1. Running Tests & Development
 
 .. code-block:: shell
 
-    pip3 install -r requirements.txt
-    python3 -m unittest discover
-    coverage run -m unittest discover
+    pip install -r requirements.txt
+    python scripts/ci/run-tests 
     
 =========================================================
  Support
