@@ -69,7 +69,7 @@ Introduction & Features
 Usage
 =========================================================
 
-Gitpy provides moodules to interact with GitHub Developer API. These modules contain functions to return the response object which can be used to write your custom logic. 
+Gitpy provides modules to interact with GitHub Developer API. These modules contain functions to return the response object which can be used to write your custom logic. 
 
 Funtions are defined as per the operations.
 
