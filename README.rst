@@ -79,7 +79,7 @@ Funtions are defined as per the operations.
 
     * ``authenticate()`` : Verify the token authentication for a given username.
 
-**Repositry**
+**Repository**
 
     * ``Repository(object : GitPy Object)`` : Creates a repository object to perform operations for repository. 
 
