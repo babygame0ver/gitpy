@@ -6,7 +6,7 @@ GitPy
 Python Interface to GitHub's developer API
 
 ------------
-|build-status| |Code Climate| |Code Coverage| |Codacy Badge| |License|
+|build-status| |Code Climate| |License|
 ------------
 
 
@@ -20,16 +20,6 @@ Python Interface to GitHub's developer API
     :scale: 100%
     :target: https://codeclimate.com/github/babygame0ver/gitpy
     
-.. |Code Coverage| image:: https://codecov.io/gh/babygame0ver/gitpy/branch/master/graph/badge.svg
-    :alt: Code Coverage
-    :scale: 100%
-    :target: https://codecov.io/gh/babygame0ver/gitpy
-    
-.. |Codacy Badge| image:: https://api.codacy.com/project/badge/Grade/64422e753f1d40c9a7cc039b21f4363a
-    :alt: Code Quality
-    :scale: 100%
-    :target: https://www.codacy.com/manual/babygame0ver/gitpy
-
 .. |License| image:: https://img.shields.io/badge/license-MIT%20License-green.svg
     :alt: License
     :scale: 100%
@@ -40,7 +30,7 @@ Dependencies
 =========================================================
 
 ------------
- |python|  |Requests| |Coverage| |Codecov| |NameGenerator|
+ |python|  |Requests|
 ------------
 
 .. |python| image:: https://img.shields.io/badge/Python-3.7.4-blue.svg?style=flat-square
@@ -53,22 +43,6 @@ Dependencies
     :scale: 100%
     :target: (https://pypi.org/project/coverage/
     
-.. |Coverage| image:: https://img.shields.io/badge/Coverage-4.5.4-blue.svg?style=flat-square
-    :alt: Coverage version
-    :scale: 100%
-    :target: https://pypi.org/project/coverage/
-
-.. |Codecov| image:: https://img.shields.io/badge/Codecov-4.5.4-blue.svg?style=flat-square
-    :alt: Codecov version
-    :scale: 100%
-    :target: (https://pypi.org/project/codecov/
-    
-.. |NameGenerator| image:: https://img.shields.io/badge/Namegenerator-1.0.6-blue.svg?style=flat-square
-    :alt: Codecov version
-    :scale: 100%
-    :target: https://pypi.org/project/namegenerator/
-    
-
 =========================================================
 Installation
 =========================================================
@@ -81,7 +55,7 @@ Installation
 
 
 =========================================================
-Features
+Introduction & Features
 =========================================================
 
 * GitPy provide response based object for the GitHub Developer's API with the help of methods.
@@ -90,8 +64,37 @@ Features
 
 * To write your own application interacting with GitHub API you need to store the end-point urls & mock them using request library. GitPy takes care it for you.
 
+
 =========================================================
-Docs
+Usage
+=========================================================
+
+Gitpy provides modules to interact with GitHub Developer API. These modules contain functions to return the response object which can be used to write your custom logic. 
+
+Funtions are defined as per the operations.
+
+**Authentication**
+
+    * ``GitPy(username : String ,token : String)`` : Create a Gitpy Object to interact with GitHub API.
+
+    * ``authenticate()`` : Verify the token authentication for a given username.
+
+**Repositry**
+
+    * ``Repository(object : GitPy Object)`` : Creates a repository object to perform operations for repository. 
+
+    * ``list_all_user_repositories()`` : List all the repository of a user.
+
+    * ``create_public_repository(repository_name : String)`` : Creates a public repository with given repository name.
+
+    * ``create_private_repository(repository_name : String)`` : Creates a private repository with given repository name.
+
+    * ``create_repository(repository_name : String, access : Boolean)`` : Creates a repository with given repository name. True passed for access will create private repository vice versa.
+
+    * ``delete_repository(repository_name : String)`` : Delete repository with given repository name.
+
+=========================================================
+Getting Started
 =========================================================
 
 Gitpy works with username & token of a given account. Please obtain a personal access token with all permissions & save it somewhere securely. 
@@ -228,44 +231,25 @@ Gitpy works with username & token of a given account. Please obtain a personal a
 Development Setup
 =========================================================
 
-1. Obtain a personal access token with all permissions from github.
-
-`Github Personal Token Guide <https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line>`_
-
-2. Create a config.json file in root directory of project with following content.
-
-.. code-block:: json
-
-    {
-    "username" : "username",
-    "token" : "token"
-    }
-3. For Travis setup add username & token to your env variables.
-
-4. Run Tests Locally
+1. Running Tests & Development
 
 .. code-block:: shell
 
-    pip3 install -r requirements.txt
-    python3 -m unittest discover
-    coverage run -m unittest discover
+    pip install -r requirements.txt
+    python scripts/ci/run-tests 
     
 =========================================================
- Support
+ Support & Contribution
 =========================================================
 
 If you are facing issues related to bugs, code documentation, development setup or any other general issue.
 Feel free to open an issue to reproduce the bug by providing sample code with proper label.   
 
-=========================================================
-Contribution
-=========================================================
-
 Contributions are always welcome.
 
 You can do any of these following:
 
-1. What can you do ? : Improve code Readability,Maintainability,any implemetation that makes it better, new ideas for the project.
+1. What can you do ? : Improve code Readability, Maintainability, any implemetation that makes current project better, new ideas for the project.
 
 2. How you can do it ? : Fork the repository, Implement new features by creating a seprate branch & sending PR to develop branch , with writting proper unit tests.  
 
