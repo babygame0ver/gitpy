@@ -5,15 +5,9 @@ GitPy
 
 Python Interface to GitHub's developer API
 
-------------
-|build-status| |Code Climate| |License|
-------------
 
+|Code Climate| |License|
 
-.. |build-status| image:: https://travis-ci.org/babygame0ver/gitpy.svg?branch=master&style=flat-square
-    :alt: Travis Build Status
-    :scale: 100%
-    :target: https://travis-ci.org/babygame0ver/gitpy
 
 .. |Code Climate| image:: https://codeclimate.com/github/babygame0ver/gitpy.png?style=flat-square
     :alt: Code Maintainability
@@ -29,9 +23,7 @@ Python Interface to GitHub's developer API
 Dependencies
 =========================================================
 
-------------
- |python|  |Requests|
-------------
+|python|  |Requests|
 
 .. |python| image:: https://img.shields.io/badge/Python-3.7.4-blue.svg?style=flat-square
     :alt: Python version
@@ -101,10 +93,10 @@ Gitpy works with username & token of a given account. Please obtain a personal a
 
 `Github Personal Token Guide <https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line>`_	
 
-
 1. **Authenticating username & token with Github API.**
 
-.. code-block:: python
+
+.. code-block:: python2
 
     from gitpy.core.auth import GitPy
 
@@ -127,7 +119,7 @@ Gitpy works with username & token of a given account. Please obtain a personal a
     
 2. **Creating Repositories.** 
 
-.. code-block:: python
+.. code-block:: python2
 
     '''
     Repository Class deals with repository (public/private) creation/deletion.
@@ -167,7 +159,7 @@ Gitpy works with username & token of a given account. Please obtain a personal a
 
 3. **Repository Deletion.** 
 
-.. code-block:: python
+.. code-block:: python2
 
     '''
     Repository class deals with repository (public/private) creation/deletion.
@@ -196,7 +188,7 @@ Gitpy works with username & token of a given account. Please obtain a personal a
 
 4. **Listing all repositories.**
 
-.. code-block:: python
+.. code-block:: python2
 
     '''
     Repository class deals with repository (public/private) creation/deletion/listing.
