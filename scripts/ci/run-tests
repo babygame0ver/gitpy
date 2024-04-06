@@ -4,7 +4,6 @@
 # binary package not from the CWD.
 
 import os
-import sys
 from subprocess import check_call
 
 _dname = os.path.dirname
