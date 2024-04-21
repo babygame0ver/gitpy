@@ -6,7 +6,7 @@ GitPy
 Python Interface to GitHub's developer API
 
 
-|Code Climate| |License| |Build Status|
+|Code Climate| |License| |Build Status| |Code Coverage|
 
 
 .. |Code Climate| image:: https://codeclimate.com/github/babygame0ver/gitpy.png?style=flat-square
@@ -23,6 +23,11 @@ Python Interface to GitHub's developer API
     :alt: Build Status
     :scale: 100%
     :target: https://app.travis-ci.com/github/babygame0ver/gitpy
+
+.. |Code Coverage| image:: https://codecov.io/gh/babygame0ver/gitpy/graph/badge.svg?token=nDeQuSURqF 
+:alt: Code Coverage
+:scale: 100%
+:target: https://codecov.io/gh/babygame0ver/gitpy
 
 =========================================================
 Dependencies
