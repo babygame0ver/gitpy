@@ -6,7 +6,7 @@ GitPy
 Python Interface to GitHub's developer API
 
 
-|Code Climate| |License|
+|Code Climate| |License| |Build Status|
 
 
 .. |Code Climate| image:: https://codeclimate.com/github/babygame0ver/gitpy.png?style=flat-square
@@ -18,6 +18,11 @@ Python Interface to GitHub's developer API
     :alt: License
     :scale: 100%
     :target: https://opensource.org/licenses/MIT
+
+.. |Build Status| image:: https://api.travis-ci.com/babygame0ver/gitpy.svg
+    :alt: Build Status
+    :scale: 100%
+    :target: https://app.travis-ci.com/github/babygame0ver/gitpy
 
 =========================================================
 Dependencies
